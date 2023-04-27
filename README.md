@@ -1,6 +1,6 @@
-# App
+# Aarondev.co.uk
 
-App is a full-featured, three-tier web application composed of a frontend, a backend API, and a PostgreSQL database. This guide will provide detailed instructions on setting up and running the application in both development and production environments.
+Aarondev.co.uk is a full-featured, three-tier web application composed of a frontend, a backend API, and a PostgreSQL database. This guide will provide detailed instructions on setting up and running the application in both development and production environments.
 
 ## Overview
 
