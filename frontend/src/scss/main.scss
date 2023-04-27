@@ -1,0 +1,54 @@
+//---------------------------------------------
+//
+//  Table of Contents
+//
+//    1. Basics
+//    2. Page Layout
+//    3. Components
+//
+//---------------------------------------------
+
+//---------------------------------------------
+// 1. Basics
+//---------------------------------------------
+
+@import "variables";
+@import "bootstrap";
+@import "fonts";
+
+// If you do not want to load the customized bootstrap version, just use the following line.
+// @import "~bootstrap/scss/bootstrap";
+
+//---------------------------------------------
+// 2. Page Layout
+//---------------------------------------------
+
+:root {
+  --navbar-height: 56px
+}
+
+.fullHeight {
+  min-height: calc(100vh - var(--navbar-height));
+
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50%);
+  animation: slide-in 1s forwards;
+}
+
+
+
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+//---------------------------------------------
+// 3.Components
+//---------------------------------------------
+

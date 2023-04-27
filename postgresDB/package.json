@@ -1,0 +1,13 @@
+{
+  "name": "postgresdb",
+  "version": "1.0.0",
+  "description": "## Getting started",
+  "main": "index.js",
+  "scripts": {
+    "docker:build": "docker build -t postgresdb .",
+    "docker:run": "docker run --name postgresdb -p 5432:5432 -d postgresdb"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "app1",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "docker-compose -f docker-compose.dev.yml up --build",
+    "install-all-dependencies": "cd api && npm install && cd ../frontend && npm install && cd ../",
+    "prod": "docker-compose -f docker-compose.production.yml up --build",
+    "util:getDircetoryStruc": "tree -I node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

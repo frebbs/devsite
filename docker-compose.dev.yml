@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./api
+      target: development
+    image: api_server
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgres://postgres:password@postgres:5432/app1
+    depends_on:
+      - postgres
+    volumes:
+      - ./api:/app
+  frontend:
+    build:
+      context: ./frontend
+      target: development
+    image: frontend
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+      - "3003:3003"
+    depends_on:
+      - postgres
+    volumes:
+      - ./frontend:/app
+  postgres:
+    build: ./postgresDB
+    image: postgresdb
+    container_name: postgresdb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=app1
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
