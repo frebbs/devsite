@@ -9,7 +9,7 @@ COPY package*.json ./
 
 # Development stage
 FROM base AS development
-RUN npm i
+RUN npm install
 COPY . .
 EXPOSE 3000:3000
 EXPOSE 3001:3001
@@ -19,7 +19,7 @@ CMD ["npm", "run", "dev"]
 
 # Production stage
 FROM base AS production
-RUN npm i
+RUN npm install
 COPY . .
 RUN npm run build
 EXPOSE 3000:3000

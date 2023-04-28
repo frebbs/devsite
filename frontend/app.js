@@ -53,6 +53,10 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
 // app.get('/template', (req, res) => {
 //   res.render('template');
 // });
