@@ -1,32 +1,50 @@
-import {dbPool} from "../config/dbConfig.js";
+import { dbPool } from "../config/dbConfig.js";
 
 async function createNewUser(username, email, password) {
     const query = {
-        text: 'INSERT INTO users(username, email, password) VALUES($1, $2, $3)',
+        text: "INSERT INTO users(username, email, password) VALUES($1, $2, $3)",
         values: [username, email, password],
     };
-    return await dbPool.query(query);
+    let result;
+    let client;
+    try {
+        client = await dbPool.connect();
+        result = await client.query(query);
+    } finally {
+        if (client) client.release();
+    }
+    return result;
 }
 
-async function findUserByEmail(username) {
+async function findUserByEmail(email) {
     const query = {
-        text: 'SELECT * from users WHERE email = $1',
-        values: [username]
+        text: "SELECT * from users WHERE email = $1",
+        values: [email],
+    };
+    let result;
+    let client;
+    try {
+        client = await dbPool.connect();
+        result = await client.query(query);
+    } finally {
+        if (client) client.release();
     }
-
-    return await dbPool.query(query)
+    return result;
 }
 
 async function findAllUsers() {
     const query = {
-        text: 'SELECT * from users'
+        text: "SELECT * from users",
+    };
+    let result;
+    let client;
+    try {
+        client = await dbPool.connect();
+        result = await client.query(query);
+    } finally {
+        if (client) client.release();
     }
-
-    return await dbPool.query(query)
+    return result;
 }
 
-export {
-    createNewUser,
-    findUserByEmail,
-    findAllUsers
-};
+export { createNewUser, findUserByEmail, findAllUsers };
